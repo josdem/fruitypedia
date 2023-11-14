@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/FirstFragment"
         android:name="com.josdem.fruitypedia.CategoryFragment"
-        android:label="@string/first_fragment_label"
+        android:label="@string/category_fragment_label"
         tools:layout="@layout/fragment_category">
 
         <action
@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/SecondFragment"
         android:name="com.josdem.fruitypedia.BeverageFragment"
-        android:label="@string/second_fragment_label"
+        android:label="@string/beverage_fragment_label"
         tools:layout="@layout/fragment_beverage">
 
         <action
