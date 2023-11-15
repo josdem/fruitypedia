@@ -2,5 +2,6 @@
     <string name="app_name">fruitypedia</string>
     <string name="category_fragment_label">Categories</string>
     <string name="beverage_fragment_label">Beverages</string>
+    <string name="recipe_fragment_label">Recipe</string>
     <string name="next">Next</string>
 </resources>
