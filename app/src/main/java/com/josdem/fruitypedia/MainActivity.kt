@@ -22,15 +22,19 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        val dexOutputDir: File = codeCacheDir
+        dexOutputDir.setReadOnly()
 
         val fruityService = RetrofitHelper.getInstance().create(FruityService::class.java)
 
         GlobalScope.launch {
+            Log.d("Loading ........................................", "noting" );
             val result = fruityService.getCategories()
             Log.d("categories: ", result.toString())
         }
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
 
