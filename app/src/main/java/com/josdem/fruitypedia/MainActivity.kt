@@ -28,9 +28,8 @@ class MainActivity : AppCompatActivity() {
         val fruityService = RetrofitHelper.getInstance().create(FruityService::class.java)
 
         GlobalScope.launch {
-            Log.d("Loading ........................................", "noting" );
             val result = fruityService.getCategories()
-            Log.d("categories: ", result.toString())
+            Log.d("categories: ", result.body().toString())
         }
 
         binding = ActivityMainBinding.inflate(layoutInflater)
