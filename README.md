@@ -1,7 +1,7 @@
 Fruitypedia
 ----------------------------
 
-This project contains juice and smoothie recipes to provide alternatives to heal our body and/or boost energy using [Android](https://www.android.com/) application using [Kotlin](https://kotlinlang.org/) as language.
+This project contains juice and smoothie recipes to provide alternatives to heal our body and/or boost energy using [Android](https://www.android.com/) and [Kotlin](https://kotlinlang.org/) as language.
 
 ### Requirements
 
