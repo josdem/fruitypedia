@@ -1,5 +1,6 @@
 package com.josdem.fruitypedia
 
+import android.R
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +14,7 @@ import com.josdem.fruitypedia.service.RetrofitHelper
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.io.File
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,6 +34,8 @@ class MainActivity : AppCompatActivity() {
             Log.d("categories: ", result.body().toString())
         }
 
+        displayResults()
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -40,6 +44,13 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
+    }
+
+    private fun displayResults() {
+        val categories =
+            arrayOf("Healing", "Energy", "Healthy", "Boost")
+
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
