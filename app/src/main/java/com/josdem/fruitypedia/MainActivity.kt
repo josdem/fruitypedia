@@ -1,8 +1,9 @@
 package com.josdem.fruitypedia
 
-import android.R
 import android.os.Bundle
 import android.util.Log
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -14,7 +15,6 @@ import com.josdem.fruitypedia.service.RetrofitHelper
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.io.File
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         displayResults()
 
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -49,7 +50,8 @@ class MainActivity : AppCompatActivity() {
     private fun displayResults() {
         val categories =
             arrayOf("Healing", "Energy", "Healthy", "Boost")
-
+        val arrayAdapter: ArrayAdapter<String> =
+            ArrayAdapter<String>(this, R.layout.list_category, R.id.categoryTextView, categories)
 
     }
 
