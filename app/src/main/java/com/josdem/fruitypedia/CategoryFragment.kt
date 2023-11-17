@@ -1,18 +1,13 @@
 package com.josdem.fruitypedia
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ListView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.josdem.fruitypedia.databinding.FragmentCategoryBinding
-import com.josdem.fruitypedia.service.FruityService
-import com.josdem.fruitypedia.service.RetrofitHelper
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import java.io.File
 
 class CategoryFragment : Fragment() {
 
@@ -30,9 +25,17 @@ class CategoryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        displayResults(view)
+
         binding.buttonFirst.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
+    }
+
+    private fun displayResults(view: View) {
+        val categories =
+            arrayOf("Healing", "Energy", "Healthy", "Boost")
+        val listView = view.findViewById(R.id.listViewCategories) as ListView
     }
 
     override fun onDestroyView() {

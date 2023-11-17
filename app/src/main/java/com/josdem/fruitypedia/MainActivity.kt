@@ -36,7 +36,6 @@ class MainActivity : AppCompatActivity() {
 
         displayResults()
 
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -52,7 +51,6 @@ class MainActivity : AppCompatActivity() {
             arrayOf("Healing", "Energy", "Healthy", "Boost")
         val arrayAdapter: ArrayAdapter<String> =
             ArrayAdapter<String>(this, R.layout.list_category, R.id.categoryTextView, categories)
-
     }
 
     override fun onSupportNavigateUp(): Boolean {
