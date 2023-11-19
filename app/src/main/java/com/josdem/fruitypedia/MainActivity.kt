@@ -12,6 +12,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.josdem.fruitypedia.databinding.ActivityMainBinding
 import com.josdem.fruitypedia.service.FruityService
 import com.josdem.fruitypedia.service.RetrofitHelper
+import com.josdem.fruitypedia.state.ApplicationState
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.io.File
@@ -51,6 +52,7 @@ class MainActivity : AppCompatActivity() {
             arrayOf("Healing", "Energy", "Healthy", "Boost")
         val arrayAdapter: ArrayAdapter<String> =
             ArrayAdapter<String>(this, R.layout.list_category, R.id.categoryTextView, categories)
+        ApplicationState.storeValue("adapter", arrayAdapter)
     }
 
     override fun onSupportNavigateUp(): Boolean {

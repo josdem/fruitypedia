@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.josdem.fruitypedia.databinding.FragmentCategoryBinding
+import com.josdem.fruitypedia.state.ApplicationState
 
 class CategoryFragment : Fragment() {
 
@@ -33,9 +35,8 @@ class CategoryFragment : Fragment() {
     }
 
     private fun displayResults(view: View) {
-        val categories =
-            arrayOf("Healing", "Energy", "Healthy", "Boost")
         val listView = view.findViewById(R.id.listViewCategories) as ListView
+        listView.adapter = ApplicationState.getValue("adapter") as ArrayAdapter<String>
     }
 
     override fun onDestroyView() {
