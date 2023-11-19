@@ -14,6 +14,7 @@ import com.josdem.fruitypedia.service.FruityService
 import com.josdem.fruitypedia.service.RetrofitHelper
 import com.josdem.fruitypedia.state.ApplicationState
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import retrofit2.Response
 import java.io.File
@@ -30,7 +31,8 @@ class MainActivity : AppCompatActivity() {
         dexOutputDir.setReadOnly()
 
         val fruityService = RetrofitHelper.getInstance().create(FruityService::class.java)
-        GlobalScope.launch {
+
+        MainScope().launch {
             val result = fruityService.getCategories()
             Log.d("categories: ", result.body().toString())
             storeResponse(result.body())
@@ -49,7 +51,7 @@ class MainActivity : AppCompatActivity() {
     private fun storeResponse(response: List<Category>?) {
         val categories = ArrayList<String>()
         response?.forEach { it -> categories.add(it.name) }
-        ApplicationState.storeValue("categories", categories)
+        (ApplicationState.getValue("categoryFragment") as CategoryFragment).displayResults(categories)
     }
 
     override fun onSupportNavigateUp(): Boolean {
