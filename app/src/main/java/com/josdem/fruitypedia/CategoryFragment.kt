@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -31,6 +30,11 @@ class CategoryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        Log.d("onViewCreated", "...")
+        if (ApplicationState.getValue("categories") != null) {
+            displayResults(ApplicationState.getValue("categories") as ArrayList<Category>)
+        }
+
         ApplicationState.storeValue("categoryFragment", this)
         binding.buttonFirst.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
@@ -47,9 +51,11 @@ class CategoryFragment : Fragment() {
             arrayAdapter.add(category)
         }
 
+        ApplicationState.storeValue("categories", categories as Any)
+
         listView.setOnItemClickListener { parent, view, position, id ->
             val category = arrayAdapter.getItem(position)
-            Log.d("element: ${category?.id}", "was selected" )
+            Log.d("element: ${category?.id}", "was selected")
             category?.id?.let { ApplicationState.storeValue("currentCategory", it) }
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
