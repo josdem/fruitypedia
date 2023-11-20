@@ -1,6 +1,7 @@
 package com.josdem.fruitypedia
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,6 +40,11 @@ class CategoryFragment : Fragment() {
         val arrayAdapter: ArrayAdapter<String> =
             ArrayAdapter<String>(view!!.context, R.layout.list_category, R.id.categoryTextView, categories)
         listView.adapter = arrayAdapter
+
+        listView.setOnItemClickListener { parent, view, position, id ->
+            val element = arrayAdapter.getItem(position)
+            Log.d("element: $element", "was selected" )
+        }
     }
 
     override fun onDestroyView() {
