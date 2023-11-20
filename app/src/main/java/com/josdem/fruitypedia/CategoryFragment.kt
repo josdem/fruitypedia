@@ -9,7 +9,9 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.josdem.fruitypedia.adapter.CategoryAdapter
 import com.josdem.fruitypedia.databinding.FragmentCategoryBinding
+import com.josdem.fruitypedia.model.Category
 import com.josdem.fruitypedia.state.ApplicationState
 
 
@@ -35,16 +37,16 @@ class CategoryFragment : Fragment() {
         }
     }
 
-    fun displayResults(categories: ArrayList<String>) {
+    fun displayResults(categories: List<Category>?) {
         val listView = view?.findViewById(R.id.listViewCategories) as ListView
-        val arrayAdapter: ArrayAdapter<String> =
-            ArrayAdapter<String>(view!!.context, R.layout.list_category, R.id.categoryTextView, categories)
+        val arrayAdapter =
+            CategoryAdapter(view!!.context, R.layout.list_category)
         listView.adapter = arrayAdapter
 
-        listView.setOnItemClickListener { parent, view, position, id ->
-            val element = arrayAdapter.getItem(position)
-            Log.d("element: $element", "was selected" )
+        categories?.forEach { category ->
+            arrayAdapter.add(category)
         }
+
     }
 
     override fun onDestroyView() {
