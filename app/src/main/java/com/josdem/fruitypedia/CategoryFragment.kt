@@ -50,6 +50,7 @@ class CategoryFragment : Fragment() {
         listView.setOnItemClickListener { parent, view, position, id ->
             val category = arrayAdapter.getItem(position)
             Log.d("element: ${category?.id}", "was selected" )
+            category?.id?.let { ApplicationState.storeValue("currentCategory", it) }
         }
 
     }
