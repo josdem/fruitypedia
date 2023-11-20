@@ -51,8 +51,8 @@ class CategoryFragment : Fragment() {
             val category = arrayAdapter.getItem(position)
             Log.d("element: ${category?.id}", "was selected" )
             category?.id?.let { ApplicationState.storeValue("currentCategory", it) }
+            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
-
     }
 
     override fun onDestroyView() {
