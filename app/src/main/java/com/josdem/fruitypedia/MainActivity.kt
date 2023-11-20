@@ -48,9 +48,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
-    private fun storeResponse(response: List<Category>?) {
-        val categories = ArrayList<String>()
-        response?.forEach { it -> categories.add(it.name) }
+    private fun storeResponse(categories: List<Category>?) {
         (ApplicationState.getValue("categoryFragment") as CategoryFragment).displayResults(categories)
     }
 
