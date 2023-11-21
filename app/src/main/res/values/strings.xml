@@ -5,4 +5,5 @@
     <string name="recipe_fragment_label">Recipe</string>
     <string name="beverage">Beverage</string>
     <string name="recipe">Recipe</string>
+    <string name="name">Name</string>
 </resources>
