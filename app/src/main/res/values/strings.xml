@@ -3,9 +3,7 @@
     <string name="category_fragment_label">Categories</string>
     <string name="beverage_fragment_label">Beverages</string>
     <string name="recipe_fragment_label">Recipe</string>
-    <string name="beverage">Beverage</string>
-    <string name="recipe">Recipe</string>
     <string name="name">Name</string>
     <string name="ingredients">Ingredients</string>
-    <string name="description">Recipe</string>
+    <string name="recipe">Recipe</string>
 </resources>

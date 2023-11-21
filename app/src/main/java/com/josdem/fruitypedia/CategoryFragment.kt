@@ -36,9 +36,6 @@ class CategoryFragment : Fragment() {
         }
 
         ApplicationState.storeValue("categoryFragment", this)
-        binding.buttonFirst.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-        }
     }
 
     fun displayResults(categories: List<Category>?) {

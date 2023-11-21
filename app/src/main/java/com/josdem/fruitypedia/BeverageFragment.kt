@@ -41,10 +41,6 @@ class BeverageFragment : Fragment() {
             Log.d("beverages: ", result.body().toString())
             displayResults(result.body())
         }
-
-        binding.buttonBeverage.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_ThirdFragment)
-        }
     }
 
     private fun displayResults(beverages: List<Beverage>?) {
