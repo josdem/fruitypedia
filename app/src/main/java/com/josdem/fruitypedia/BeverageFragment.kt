@@ -57,6 +57,7 @@ class BeverageFragment : Fragment() {
             val beverage = arrayAdapter.getItem(position)
             Log.d("element: $beverage", "was selected")
             beverage?.id?.let { ApplicationState.storeValue("currentBeverage", it) }
+            findNavController().navigate(R.id.action_SecondFragment_to_ThirdFragment)
         }
     }
 
