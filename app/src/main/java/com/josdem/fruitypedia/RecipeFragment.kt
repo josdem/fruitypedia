@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.josdem.fruitypedia.databinding.FragmentRecipeBinding
 import com.josdem.fruitypedia.model.Beverage
@@ -42,8 +43,14 @@ class RecipeFragment : Fragment() {
     }
 
     private fun displayResults(beverage: Beverage?) {
+        val name = view?.findViewById<TextView>(R.id.name)
+        name?.text = beverage?.name
 
+        val ingredients = view?.findViewById<TextView>(R.id.ingredients)
+        ingredients?.text = beverage?.ingredients
 
+        val recipe = view?.findViewById<TextView>(R.id.recipe)
+        recipe?.text = beverage?.recipe
     }
 
     override fun onDestroyView() {
