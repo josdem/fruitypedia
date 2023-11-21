@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -48,7 +49,9 @@ class BeverageFragment : Fragment() {
 
     private fun displayResults(beverages: List<Beverage>?) {
         val listView = view?.findViewById(R.id.listViewBeverages) as ListView
-
+        val arrayAdapter: ArrayAdapter<Beverage> =
+            ArrayAdapter<Beverage>(view!!.context, R.layout.list_beverage, R.id.beverageTextView, beverages as MutableList<Beverage>)
+        listView.adapter = arrayAdapter
     }
 
     override fun onDestroyView() {
