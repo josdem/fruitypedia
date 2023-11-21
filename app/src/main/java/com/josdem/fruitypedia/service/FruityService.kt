@@ -14,4 +14,8 @@ interface FruityService {
 
     @GET("/categories/{categoryId}/beverages")
     suspend fun getBeverages(@Path("categoryId") id: Int): Response<List<Beverage>>
+
+    @GET("/beverages/{beverageId}")
+    suspend fun getBeverage(@Path("beverageId") id: Int): Response<Beverage>
+
 }

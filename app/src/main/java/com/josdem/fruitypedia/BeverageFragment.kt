@@ -52,6 +52,13 @@ class BeverageFragment : Fragment() {
         val arrayAdapter: ArrayAdapter<Beverage> =
             ArrayAdapter<Beverage>(view!!.context, R.layout.list_beverage, R.id.beverageTextView, beverages as MutableList<Beverage>)
         listView.adapter = arrayAdapter
+
+        listView.setOnItemClickListener { parent, view, position, id ->
+            val beverage = arrayAdapter.getItem(position)
+            Log.d("element: $beverage", "was selected")
+            beverage?.id?.let { ApplicationState.storeValue("currentBeverage", it) }
+            findNavController().navigate(R.id.action_SecondFragment_to_ThirdFragment)
+        }
     }
 
     override fun onDestroyView() {
