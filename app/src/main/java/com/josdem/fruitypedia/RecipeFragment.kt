@@ -1,11 +1,17 @@
 package com.josdem.fruitypedia
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.josdem.fruitypedia.databinding.FragmentRecipeBinding
+import com.josdem.fruitypedia.service.FruityService
+import com.josdem.fruitypedia.service.RetrofitHelper
+import com.josdem.fruitypedia.state.ApplicationState
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
 
 
 class RecipeFragment : Fragment() {
@@ -23,6 +29,13 @@ class RecipeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val fruityService = RetrofitHelper.getInstance().create(FruityService::class.java)
+
+        MainScope().launch {
+            val result = fruityService.getBeverage(101)
+            Log.d("beverage: ", result.body().toString())
+        }
     }
 
     override fun onDestroyView() {
