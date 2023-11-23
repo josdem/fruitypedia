@@ -25,7 +25,7 @@ class BeverageFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentBeverageBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -37,7 +37,8 @@ class BeverageFragment : Fragment() {
         val fruityService = RetrofitHelper.getInstance().create(FruityService::class.java)
 
         MainScope().launch {
-            val result = fruityService.getBeverages(ApplicationState.getValue("currentCategory") as Int)
+            val result =
+                fruityService.getBeverages(ApplicationState.getValue("currentCategory") as Int)
             Log.d("beverages: ", result.body().toString())
             displayResults(result.body())
         }
@@ -46,7 +47,12 @@ class BeverageFragment : Fragment() {
     private fun displayResults(beverages: List<Beverage>?) {
         val listView = view?.findViewById(R.id.listViewBeverages) as ListView
         val arrayAdapter: ArrayAdapter<Beverage> =
-            ArrayAdapter<Beverage>(view!!.context, R.layout.list_beverage, R.id.beverageTextView, beverages as MutableList<Beverage>)
+            ArrayAdapter<Beverage>(
+                view!!.context,
+                R.layout.list_beverage,
+                R.id.beverageTextView,
+                beverages as MutableList<Beverage>
+            )
         listView.adapter = arrayAdapter
 
         listView.setOnItemClickListener { parent, view, position, id ->
