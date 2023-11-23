@@ -17,7 +17,6 @@ import kotlinx.coroutines.launch
 import java.io.File
 
 class MainActivity : AppCompatActivity() {
-
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
@@ -47,13 +46,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun storeResponse(categories: List<Category>?) {
         (ApplicationState.getValue("categoryFragment") as CategoryFragment).displayResults(
-            categories
+            categories,
         )
     }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfiguration)
-                || super.onSupportNavigateUp()
+        return navController.navigateUp(appBarConfiguration) ||
+            super.onSupportNavigateUp()
     }
 }

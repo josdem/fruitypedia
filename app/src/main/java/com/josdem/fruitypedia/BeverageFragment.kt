@@ -18,19 +18,22 @@ import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
 class BeverageFragment : Fragment() {
-
     private var _binding: FragmentBeverageBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentBeverageBinding.inflate(inflater, container, false)
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?,
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         Log.d("currentCategory: ${ApplicationState.getValue("currentCategory")}", "is active")
@@ -51,7 +54,7 @@ class BeverageFragment : Fragment() {
                 view!!.context,
                 R.layout.list_beverage,
                 R.id.beverageTextView,
-                beverages as MutableList<Beverage>
+                beverages as MutableList<Beverage>,
             )
         listView.adapter = arrayAdapter
 
