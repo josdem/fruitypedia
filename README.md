@@ -11,13 +11,16 @@ This project contains juice and smoothie recipes to provide alternatives to heal
 **Note:** It was developed with a Pixel 4 Android 14 
 
 ### To build the project
-
 ```bash
 gradle assembleDebug
 ```
 
-### To run emulator
+### To format the code
+```bash
+gradle spotlessApply
+```
 
+### To run emulator
 ```bash
 ${androidSdk}/emulator emulator -adv ${deviceName} 
 ```
@@ -27,7 +30,6 @@ Where:
 - `${deviceName}` is device you created
 
 ### To install the app
-
 ```bash
 ${androidSdk}/platform-tools/adb -s emulator-5554 install ${projectHome}/app/build/outputs/apk/debug/app-debug.apk
 ```

@@ -13,21 +13,23 @@ import com.josdem.fruitypedia.databinding.FragmentCategoryBinding
 import com.josdem.fruitypedia.model.Category
 import com.josdem.fruitypedia.state.ApplicationState
 
-
 class CategoryFragment : Fragment() {
-
     private var _binding: FragmentCategoryBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentCategoryBinding.inflate(inflater, container, false)
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?,
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         Log.d("onViewCreated", "...")

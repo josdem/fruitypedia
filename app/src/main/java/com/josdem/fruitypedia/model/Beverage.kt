@@ -5,7 +5,7 @@ data class Beverage(
     val name: String,
     val ingredients: String,
     val recipe: String,
-    val image: String
+    val image: String,
 ) {
     override fun toString(): String = name
 }
