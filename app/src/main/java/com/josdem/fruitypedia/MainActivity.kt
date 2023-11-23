@@ -2,7 +2,6 @@ package com.josdem.fruitypedia
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -13,10 +12,8 @@ import com.josdem.fruitypedia.model.Category
 import com.josdem.fruitypedia.service.FruityService
 import com.josdem.fruitypedia.service.RetrofitHelper
 import com.josdem.fruitypedia.state.ApplicationState
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
-import retrofit2.Response
 import java.io.File
 
 class MainActivity : AppCompatActivity() {
@@ -49,7 +46,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun storeResponse(categories: List<Category>?) {
-        (ApplicationState.getValue("categoryFragment") as CategoryFragment).displayResults(categories)
+        (ApplicationState.getValue("categoryFragment") as CategoryFragment).displayResults(
+            categories
+        )
     }
 
     override fun onSupportNavigateUp(): Boolean {
