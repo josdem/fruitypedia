@@ -68,10 +68,9 @@ class RecipeFragment : Fragment() {
         name?.text = beverage?.name
 
         val image = view?.findViewById<ImageView>(R.id.image)
-        if (image != null && beverage != null)
-            {
-                ImageResolver.setImage(image, beverage)
-            }
+        if (image != null && beverage != null) {
+            ImageResolver.setImage(image, beverage)
+        }
 
         val ingredients = view?.findViewById<TextView>(R.id.ingredients)
         ingredients?.text = beverage?.ingredients
