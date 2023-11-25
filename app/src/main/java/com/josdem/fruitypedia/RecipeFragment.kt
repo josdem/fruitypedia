@@ -30,8 +30,10 @@ import com.josdem.fruitypedia.model.Beverage
 import com.josdem.fruitypedia.service.FruityService
 import com.josdem.fruitypedia.service.RetrofitHelper
 import com.josdem.fruitypedia.state.ApplicationState
+import com.josdem.fruitypedia.util.ImageResolver
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
+import java.util.Optional
 
 class RecipeFragment : Fragment() {
     private var _binding: FragmentRecipeBinding? = null
@@ -67,7 +69,9 @@ class RecipeFragment : Fragment() {
         name?.text = beverage?.name
 
         val image = view?.findViewById<ImageView>(R.id.image)
-        image?.setImageResource(R.drawable.no_image)
+        if(image != null && beverage != null){
+            ImageResolver.setImage(image, beverage)
+        }
 
         val ingredients = view?.findViewById<TextView>(R.id.ingredients)
         ingredients?.text = beverage?.ingredients
