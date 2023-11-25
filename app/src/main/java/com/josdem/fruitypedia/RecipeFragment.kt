@@ -22,6 +22,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.josdem.fruitypedia.databinding.FragmentRecipeBinding
@@ -64,6 +65,9 @@ class RecipeFragment : Fragment() {
     private fun displayResults(beverage: Beverage?) {
         val name = view?.findViewById<TextView>(R.id.name)
         name?.text = beverage?.name
+
+        val image = view?.findViewById<ImageView>(R.id.image)
+        image?.setImageResource(R.drawable.no_image)
 
         val ingredients = view?.findViewById<TextView>(R.id.ingredients)
         ingredients?.text = beverage?.ingredients
