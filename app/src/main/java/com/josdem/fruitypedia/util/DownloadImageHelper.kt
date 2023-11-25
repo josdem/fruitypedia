@@ -12,13 +12,12 @@ import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
 class DownloadImageHelper(private val imageView: ImageView) {
-
     private val executor: ExecutorService = Executors.newSingleThreadExecutor()
     private val handler = Handler(Looper.getMainLooper())
 
     fun doInBackground(url: String) {
         executor.execute {
-            val bitmap : Bitmap = loadImage(url)
+            val bitmap: Bitmap = loadImage(url)
             handler.post {
                 imageView.setImageBitmap(bitmap)
             }
