@@ -30,6 +30,7 @@ import com.josdem.fruitypedia.model.Beverage
 import com.josdem.fruitypedia.service.FruityService
 import com.josdem.fruitypedia.service.RetrofitHelper
 import com.josdem.fruitypedia.state.ApplicationState
+import com.josdem.fruitypedia.util.BeverageSplitter
 import com.josdem.fruitypedia.util.ImageResolver
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
@@ -73,7 +74,7 @@ class RecipeFragment : Fragment() {
         }
 
         val ingredients = view?.findViewById<TextView>(R.id.ingredients)
-        ingredients?.text = beverage?.ingredients
+        ingredients?.text = beverage?.ingredients?.let { BeverageSplitter.split(it) }
 
         val recipe = view?.findViewById<TextView>(R.id.recipe)
         recipe?.text = beverage?.recipe
