@@ -37,6 +37,7 @@ import kotlinx.coroutines.launch
 class BeverageFragment : Fragment() {
     private var _binding: FragmentBeverageBinding? = null
     private val binding get() = _binding!!
+    private val fruityService: FruityService = RetrofitHelper.getInstance().create(FruityService::class.java)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,9 +53,7 @@ class BeverageFragment : Fragment() {
         savedInstanceState: Bundle?,
     ) {
         super.onViewCreated(view, savedInstanceState)
-
         Log.d("currentCategory: ${ApplicationState.getValue("currentCategory")}", "is active")
-        val fruityService = RetrofitHelper.getInstance().create(FruityService::class.java)
 
         MainScope().launch {
             val result =
