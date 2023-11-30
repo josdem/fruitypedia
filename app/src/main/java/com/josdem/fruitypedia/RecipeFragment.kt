@@ -38,6 +38,7 @@ import kotlinx.coroutines.launch
 class RecipeFragment : Fragment() {
     private var _binding: FragmentRecipeBinding? = null
     private val binding get() = _binding!!
+    private val fruityService: FruityService = RetrofitHelper.getInstance().create(FruityService::class.java)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -53,8 +54,6 @@ class RecipeFragment : Fragment() {
         savedInstanceState: Bundle?,
     ) {
         super.onViewCreated(view, savedInstanceState)
-
-        val fruityService = RetrofitHelper.getInstance().create(FruityService::class.java)
 
         MainScope().launch {
             val result =
