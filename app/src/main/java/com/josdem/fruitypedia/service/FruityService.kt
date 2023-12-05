@@ -24,8 +24,10 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface FruityService {
-    @GET("/categories/en")
-    suspend fun getCategories(): Response<List<Category>>
+    @GET("/categories/{language}")
+    suspend fun getCategories(
+        @Path("language") language: String,
+    ): Response<List<Category>>
 
     @GET("/categories/{categoryId}/beverages")
     suspend fun getBeverages(
