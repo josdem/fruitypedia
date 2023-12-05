@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Fruitypedia</string>
+    <string name="category_fragment_label">Categorías</string>
+    <string name="beverage_fragment_label">Bebidas</string>
+    <string name="recipe_fragment_label">Receta</string>
+    <string name="name">Nombre</string>
+    <string name="ingredients">Ingredientes</string>
+    <string name="recipe">Receta</string>
+</resources>

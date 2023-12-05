@@ -32,10 +32,12 @@ import com.josdem.fruitypedia.state.ApplicationState
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import java.io.File
+import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+    private val language: String = Locale.getDefault().language
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         val fruityService = RetrofitHelper.getInstance().create(FruityService::class.java)
 
         MainScope().launch {
-            val result = fruityService.getCategories()
+            val result = fruityService.getCategories(language)
             Log.d("categories: ", result.body().toString())
             storeResponse(result.body())
         }
@@ -70,6 +72,6 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) ||
-            super.onSupportNavigateUp()
+                super.onSupportNavigateUp()
     }
 }
