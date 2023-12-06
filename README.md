@@ -37,3 +37,5 @@ ${androidSdk}/platform-tools/adb -s emulator-5554 install ${projectHome}/app/bui
 Where:
 - `${androidSdk}` is your Android SDK directory
 - `${projectHome}` is your project directory
+
+**Note:** Fruitypedia uses [jugoterapia-webflux](https://github.com/josdem/jugoterapia-webflux) project as a backend service.
