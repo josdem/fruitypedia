@@ -14,7 +14,6 @@ import org.junit.Before
 import org.junit.Test
 
 class BeverageFragmentTest {
-
     @MockK
     private lateinit var view: View
 

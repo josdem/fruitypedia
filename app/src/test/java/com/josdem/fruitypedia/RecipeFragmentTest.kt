@@ -11,12 +11,10 @@ import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
 import io.mockk.mockkStatic
 import io.mockk.verify
-import junit.framework.Assert.assertNull
 import org.junit.Before
 import org.junit.Test
 
 class RecipeFragmentTest {
-
     @MockK
     private lateinit var view: View
 

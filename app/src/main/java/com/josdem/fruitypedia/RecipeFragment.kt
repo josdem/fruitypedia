@@ -57,7 +57,7 @@ class RecipeFragment : Fragment() {
 
         val currentBeverage = ApplicationState.getValue("currentBeverage") as Int
 
-        if(currentBeverage > 0) {
+        if (currentBeverage > 0) {
             MainScope().launch {
                 val result =
                     fruityService.getBeverage(currentBeverage)

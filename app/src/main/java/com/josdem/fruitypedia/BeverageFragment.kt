@@ -56,7 +56,7 @@ class BeverageFragment : Fragment() {
         val currentCategory: Int = ApplicationState.getValue("currentCategory") as Int
         Log.d("currentCategory: $currentCategory", "is active")
 
-        if(currentCategory > 0) {
+        if (currentCategory > 0) {
             MainScope().launch {
                 val result =
                     fruityService.getBeverages(ApplicationState.getValue("currentCategory") as Int)
