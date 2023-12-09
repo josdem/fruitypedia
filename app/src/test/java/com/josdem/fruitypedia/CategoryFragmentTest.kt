@@ -14,7 +14,6 @@ import org.junit.Before
 import org.junit.Test
 
 class CategoryFragmentTest {
-
     @MockK
     private lateinit var view: View
 
@@ -34,5 +33,4 @@ class CategoryFragmentTest {
         categoryFragment.onViewCreated(view, bundle)
         assertEquals(categoryFragment, ApplicationState.getValue("categoryFragment"))
     }
-
 }
