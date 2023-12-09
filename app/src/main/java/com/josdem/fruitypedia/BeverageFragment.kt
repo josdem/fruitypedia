@@ -53,13 +53,16 @@ class BeverageFragment : Fragment() {
         savedInstanceState: Bundle?,
     ) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d("currentCategory: ${ApplicationState.getValue("currentCategory")}", "is active")
+        val currentCategory: Int = ApplicationState.getValue("currentCategory") as Int
+        Log.d("currentCategory: $currentCategory", "is active")
 
-        MainScope().launch {
-            val result =
-                fruityService.getBeverages(ApplicationState.getValue("currentCategory") as Int)
-            Log.d("beverages: ", result.body().toString())
-            displayResults(result.body())
+        if (currentCategory > 0) {
+            MainScope().launch {
+                val result =
+                    fruityService.getBeverages(ApplicationState.getValue("currentCategory") as Int)
+                Log.d("beverages: ", result.body().toString())
+                displayResults(result.body())
+            }
         }
     }
 
