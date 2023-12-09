@@ -3,17 +3,19 @@ package com.josdem.fruitypedia
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import com.josdem.fruitypedia.state.ApplicationState
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
 import io.mockk.mockkStatic
-import junit.framework.TestCase.assertNull
+import io.mockk.verify
+import junit.framework.Assert.assertNull
 import org.junit.Before
 import org.junit.Test
 
-class BeverageFragmentTest {
+class RecipeFragmentTest {
 
     @MockK
     private lateinit var view: View
@@ -22,19 +24,20 @@ class BeverageFragmentTest {
     private lateinit var bundle: Bundle
 
     @InjectMockKs
-    private var beverageFragment = BeverageFragment()
+    private var recipeFragment = RecipeFragment()
 
     @Before
     fun setUp() = MockKAnnotations.init(this)
 
     @Test
-    fun shouldValidateBeverageFragment() {
+    fun shouldValidateRecipeFragment() {
         mockkStatic(Log::class)
         every { Log.d(any(), any()) } returns 0
 
-        ApplicationState.storeValue("currentCategory", 0)
+        ApplicationState.storeValue("currentBeverage", 0)
 
-        beverageFragment.onViewCreated(view, bundle)
-        assertNull(ApplicationState.getValue("currentBeverage"))
+        recipeFragment.onViewCreated(view, bundle)
+
+        verify(exactly = 0) { view.findViewById<TextView>(R.id.listViewBeverages) }
     }
 }

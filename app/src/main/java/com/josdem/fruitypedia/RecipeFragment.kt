@@ -55,11 +55,15 @@ class RecipeFragment : Fragment() {
     ) {
         super.onViewCreated(view, savedInstanceState)
 
-        MainScope().launch {
-            val result =
-                fruityService.getBeverage(ApplicationState.getValue("currentBeverage") as Int)
-            Log.d("beverage: ", result.body().toString())
-            displayResults(result.body())
+        val currentBeverage = ApplicationState.getValue("currentBeverage") as Int
+
+        if(currentBeverage > 0) {
+            MainScope().launch {
+                val result =
+                    fruityService.getBeverage(currentBeverage)
+                Log.d("beverage: ", result.body().toString())
+                displayResults(result.body())
+            }
         }
     }
 
