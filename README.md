@@ -10,6 +10,11 @@ This project contains juice and smoothie recipes to provide alternatives to heal
 
 **Note:** It was developed with a Pixel 4 Android 14 
 
+### To run tests
+```bash
+gradle test
+```
+
 ### To build the project
 ```bash
 gradle assembleDebug
