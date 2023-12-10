@@ -25,13 +25,13 @@ jobs:
           fileDir: '/home/runner/work/<<project name>>/<<project name>>/app/keystore/'
           encodedString: ${{ secrets.KEYSTORE }}
       - name: Build signed APK
-          run: ./gradlew assembleRelease -x test
-          env:
-            SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
-            SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
-            SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+        run: ./gradlew assembleRelease -x test
+        env:
+          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
       - name: Upload APK
-          uses: actions/upload-artifact@v3.1.2
-          with:
-            name: <<application name>>
-            path: app/build/outputs/apk/release/<<application name>>_${{ github.event.inputs.version }}.apk
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          name: <<application name>>
+          path: app/build/outputs/apk/release/<<application name>>_${{ github.event.inputs.version }}.apk
