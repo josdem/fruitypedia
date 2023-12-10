@@ -28,7 +28,7 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
-      - name: Decode Keystore
+      - name: Decode
           id: decode_keystore
           uses: timheuer/base64-to-file@v1.2
           with:
