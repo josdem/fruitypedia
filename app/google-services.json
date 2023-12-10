@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "",
-    "project_id": "",
-    "storage_bucket": "fake-file.appspot.com"
+    "project_number": "780969437312",
+    "project_id": "fruitypedia-josdem",
+    "storage_bucket": "fruitypedia-josdem.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:123456789012:android:1234567890123456",
+        "mobilesdk_app_id": "1:780969437312:android:3e86b9aceec5b6ba445e65",
         "android_client_info": {
           "package_name": "com.josdem.fruitypedia"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "fake-key"
+          "current_key": "AIzaSyCTXKgXRkOFGomm-CL7wpIqeV63JvAyNJQ"
         }
       ],
       "services": {
