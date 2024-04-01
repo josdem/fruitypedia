@@ -6,4 +6,6 @@
     <string name="name">Name</string>
     <string name="ingredients">Ingredients</string>
     <string name="recipe">Recipe</string>
+    <string name="dialogMessage">Hello There!</string>
+    <string name="dialogButton">OK</string>
 </resources>

@@ -19,7 +19,9 @@ package com.josdem.fruitypedia
 
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -38,6 +40,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
     private val language: String = Locale.getDefault().language
+    private var clickCounter: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,11 +59,28 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setEasterEgg(binding.toolbar)
+
         setSupportActionBar(binding.toolbar)
 
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
+    }
+
+    private fun setEasterEgg(toolbar: Toolbar) {
+        Log.d("Easter Egg:","On Toolbar");
+        toolbar.setOnClickListener {
+            clickCounter += 1
+            Log.d("clickCounter:", clickCounter.toString());
+            if(clickCounter >= 5){
+                AlertDialog.Builder(this)
+                    .setMessage(R.string.dialogMessage)
+                    .setPositiveButton(R.string.dialogButton, null)
+                    .show();
+                clickCounter = 0
+            }
+        }
     }
 
     private fun storeResponse(categories: List<Category>?) {
