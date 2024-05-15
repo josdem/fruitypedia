@@ -32,7 +32,7 @@ ${androidSdk}/emulator emulator -adv ${deviceName}
 
 Where:
 - `${androidSdk}` is your Android SDK directory
-- `${deviceName}` is device you created
+- `${deviceName}` is device you created 
 
 ### To install the app
 ```bash
