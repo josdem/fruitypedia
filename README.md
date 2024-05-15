@@ -43,4 +43,4 @@ Where:
 - `${androidSdk}` is your Android SDK directory
 - `${projectHome}` is your project directory
 
-**Note:** Fruitypedia uses [jugoterapia-webflux](https://github.com/josdem/jugoterapia-webflux) project as a backend service.
+**Note:** Fruitypedia uses [fruitypedia-spring-boot](https://github.com/josdem/fruitypedia-spring-boot) project as a backend service.
