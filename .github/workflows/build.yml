@@ -2,8 +2,9 @@ name: Minimal Android CI Workflow
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 jobs:
   test:
     name: Run Unit Tests
@@ -14,7 +15,7 @@ jobs:
       - name: Setup JDK
         uses: actions/setup-java@v1
         with:
-          java-version: 11
+          java-version: 17
       - name: Run Tests
         run: bash ./gradlew test --stacktrace
   apk:
@@ -27,7 +28,7 @@ jobs:
       - name: Setup JDK
         uses: actions/setup-java@v1
         with:
-          java-version: 11
+          java-version: 17
       - name: Build APK
         run: bash ./gradlew assembleDebug --stacktrace
       - name: Upload APK
