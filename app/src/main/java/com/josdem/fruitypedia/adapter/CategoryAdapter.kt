@@ -25,10 +25,19 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 import com.josdem.fruitypedia.R
 import com.josdem.fruitypedia.model.Category
+import java.util.ArrayList
 
 class CategoryAdapter(context: Context, resource: Int) : ArrayAdapter<Category>(context, resource) {
     private val inflater: LayoutInflater =
         context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+
+    private val images = ArrayList<Int>();
+    init {
+        images.add(R.drawable.healing)
+        images.add(R.drawable.energy)
+        images.add(R.drawable.healthy)
+        images.add(R.drawable.boost)
+    }
 
     override fun getView(
         position: Int,
@@ -36,7 +45,8 @@ class CategoryAdapter(context: Context, resource: Int) : ArrayAdapter<Category>(
         parent: ViewGroup,
     ): View {
         val view = inflater.inflate(R.layout.list_category, parent, false)
-        val textView = view.findViewById(R.id.categoryTextView) as TextView
+        val textView: TextView = view.findViewById(R.id.categoryTextView)
+        textView.setCompoundDrawablesWithIntrinsicBounds(images[position], 0, 0, 0);
         textView.text = this.getItem(position)?.name
         return view
     }
