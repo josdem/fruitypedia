@@ -46,9 +46,6 @@ Where:
 - `${androidSdk}` is your Android SDK directory
 - `${projectHome}` is your project directory
 
-**We appreciate contribution to this open source project**
-[Contributors](https://github.com/josdem/fruitypedia/CONTRIBUTORS.md)
-
 **Note:** Fruitypedia uses [fruitypedia-spring-boot](https://github.com/josdem/fruitypedia-spring-boot) project as a backend service.
 ## Contributors ✨
 
