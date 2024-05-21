@@ -18,6 +18,7 @@ under the License.
 package com.josdem.fruitypedia.adapter
 
 import android.content.Context
+import android.content.res.Configuration
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,10 +34,18 @@ class CategoryAdapter(context: Context, resource: Int) : ArrayAdapter<Category>(
 
     private val images = ArrayList<Int>();
     init {
-        images.add(R.drawable.healing)
-        images.add(R.drawable.energy)
-        images.add(R.drawable.healthy)
-        images.add(R.drawable.boost)
+        val nightModeFlags = context.resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK);
+        if(nightModeFlags == Configuration.UI_MODE_NIGHT_YES) {
+            images.add(R.drawable.healing_night)
+            images.add(R.drawable.energy_night)
+            images.add(R.drawable.healthy_night)
+            images.add(R.drawable.boost_night)
+        } else {
+            images.add(R.drawable.healthy)
+            images.add(R.drawable.energy)
+            images.add(R.drawable.healthy)
+            images.add(R.drawable.boost)
+        }
     }
 
     override fun getView(
