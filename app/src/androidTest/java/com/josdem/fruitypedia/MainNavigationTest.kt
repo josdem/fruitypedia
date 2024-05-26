@@ -49,6 +49,9 @@ class MainNavigationTest {
             )
             .atPosition(0)
         materialTextView.perform(click())
+
+        val materialTextView1 = onView(allOf(withId(R.id.listViewBeverages)))
+        materialTextView1.check(matches(isDisplayed()))
     }
 
     private fun childAtPosition(
