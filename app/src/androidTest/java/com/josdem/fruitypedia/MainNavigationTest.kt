@@ -26,9 +26,9 @@ class MainNavigationTest {
 
     @Test
     fun mainNavigationTest() {
-        val materialTextView =
+        val healingTextView =
             onData(allOf(`is`(instanceOf(Category::class.java)), `is`(Category(5, "Healing"))))
-        materialTextView.perform(click())
+        healingTextView.perform(click())
 
         val materialTextView1 = onView(allOf(withId(R.id.listViewBeverages)))
         materialTextView1.check(matches(isDisplayed()))
