@@ -69,17 +69,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setEasterEgg(toolbar: Toolbar) {
-        Log.d("Easter Egg:","On Toolbar");
+        Log.d("Easter Egg:", "On Toolbar")
         toolbar.setOnClickListener {
             clickCounter += 1
-            Log.d("clickCounter:", clickCounter.toString());
-            if(clickCounter >= 5){
-                AlertDialog.Builder(this)
-                    .setMessage(R.string.dialogMessage)
-                    .setPositiveButton(R.string.dialogButton, null)
-                    .show();
-                clickCounter = 0
-            }
+            Log.d("clickCounter:", clickCounter.toString())
+            if (clickCounter >= 5)
+                {
+                    AlertDialog.Builder(this)
+                        .setMessage(R.string.dialogMessage)
+                        .setPositiveButton(R.string.dialogButton, null)
+                        .show()
+                    clickCounter = 0
+                }
         }
     }
 
