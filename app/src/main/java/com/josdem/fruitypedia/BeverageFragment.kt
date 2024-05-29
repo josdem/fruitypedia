@@ -22,10 +22,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.josdem.fruitypedia.adapter.BeverageAdapter
 import com.josdem.fruitypedia.databinding.FragmentBeverageBinding
 import com.josdem.fruitypedia.model.Beverage
 import com.josdem.fruitypedia.service.FruityService
@@ -68,14 +68,13 @@ class BeverageFragment : Fragment() {
 
     private fun displayResults(beverages: List<Beverage>?) {
         val listView = view?.findViewById(R.id.listViewBeverages) as ListView
-        val arrayAdapter: ArrayAdapter<Beverage> =
-            ArrayAdapter<Beverage>(
-                view!!.context,
-                R.layout.list_beverage,
-                R.id.beverageTextView,
-                beverages as MutableList<Beverage>,
-            )
+        val arrayAdapter =
+            BeverageAdapter(view!!.context, R.layout.list_beverage)
         listView.adapter = arrayAdapter
+
+        beverages?.forEach { beverage ->
+            arrayAdapter.add(beverage)
+        }
 
         listView.setOnItemClickListener { parent, view, position, id ->
             val beverage = arrayAdapter.getItem(position)
