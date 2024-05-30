@@ -32,10 +32,11 @@ class CategoryAdapter(context: Context, resource: Int) : ArrayAdapter<Category>(
     private val inflater: LayoutInflater =
         context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
-    private val images = ArrayList<Int>();
+    private val images = ArrayList<Int>()
+
     init {
-        val nightModeFlags = context.resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK);
-        if(nightModeFlags == Configuration.UI_MODE_NIGHT_YES) {
+        val nightModeFlags = context.resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)
+        if (nightModeFlags == Configuration.UI_MODE_NIGHT_YES) {
             images.add(R.drawable.healing_night)
             images.add(R.drawable.energy_night)
             images.add(R.drawable.healthy_night)
@@ -55,7 +56,7 @@ class CategoryAdapter(context: Context, resource: Int) : ArrayAdapter<Category>(
     ): View {
         val view = inflater.inflate(R.layout.list_category, parent, false)
         val textView: TextView = view.findViewById(R.id.categoryTextView)
-        textView.setCompoundDrawablesWithIntrinsicBounds(images[position], 0, 0, 0);
+        textView.setCompoundDrawablesWithIntrinsicBounds(images[position], 0, 0, 0)
         textView.text = this.getItem(position)?.name
         return view
     }

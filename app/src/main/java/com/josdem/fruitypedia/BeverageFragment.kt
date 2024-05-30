@@ -68,6 +68,7 @@ class BeverageFragment : Fragment() {
 
     private fun displayResults(beverages: List<Beverage>?) {
         val listView = view?.findViewById(R.id.listViewBeverages) as ListView
+
         val arrayAdapter: ArrayAdapter<Beverage> =
             ArrayAdapter<Beverage>(
                 view!!.context,
