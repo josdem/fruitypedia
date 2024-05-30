@@ -21,10 +21,10 @@ jobs:
   apk:
     name: Generate APK
     needs: test
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
       - name: Setup JDK
         uses: actions/setup-java@v1
         with:
