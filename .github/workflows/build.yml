@@ -2,7 +2,7 @@ name: Minimal Android CI Workflow
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "feature/72" ]
   pull_request:
     branches: [ "main" ]
 jobs:
@@ -29,6 +29,13 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 17
+      - name: Run connected tests
+        uses: ReactiveCircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          target: google_apis
+          arch: x86_64
+          script: ./gradlew connectedCheck
       - name: Build APK
         run: bash ./gradlew assembleDebug --stacktrace
       - name: Upload APK
