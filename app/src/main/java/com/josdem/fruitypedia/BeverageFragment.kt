@@ -41,6 +41,12 @@ class BeverageFragment : Fragment() {
     private val binding get() = _binding!!
     private val fruityService: FruityService = RetrofitHelper.getInstance().create(FruityService::class.java)
 
+    @VisibleForTesting
+    protected val id: String = "ID"
+
+    @VisibleForTesting
+    protected val name: String = "NAME"
+
     private var data: MutableList<Map<Int, String>> = mutableListOf()
 
     override fun onCreateView(
@@ -94,6 +100,8 @@ class BeverageFragment : Fragment() {
 
     private fun displayResults(beverages: List<Beverage>?) {
         val listView = view?.findViewById(R.id.listViewBeverages) as ListView
+        val from = arrayOf<String>(id, name)
+        val to = intArrayOf(R.id.beverageIdTextView, R.id.beverageTextView)
 
         val arrayAdapter: ArrayAdapter<Beverage> =
             ArrayAdapter<Beverage>(
