@@ -24,8 +24,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import androidx.annotation.VisibleForTesting
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.common.collect.Maps
 import com.josdem.fruitypedia.databinding.FragmentBeverageBinding
 import com.josdem.fruitypedia.model.Beverage
 import com.josdem.fruitypedia.service.FruityService
@@ -38,6 +40,8 @@ class BeverageFragment : Fragment() {
     private var _binding: FragmentBeverageBinding? = null
     private val binding get() = _binding!!
     private val fruityService: FruityService = RetrofitHelper.getInstance().create(FruityService::class.java)
+
+    private var data: MutableList<Map<Int, String>> = mutableListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -62,7 +66,29 @@ class BeverageFragment : Fragment() {
                     fruityService.getBeverages(ApplicationState.getValue("currentCategory") as Int)
                 Log.d("beverages: ", result.body().toString())
                 displayResults(result.body())
+                populateData(result.body())
+                printData()
             }
+        }
+    }
+
+    @VisibleForTesting
+    protected fun makeItem(beverage: Beverage): MutableMap<Int, String> {
+        val dataRow: MutableMap<Int, String> = Maps.newHashMap()
+        dataRow[beverage.id] = beverage.name
+        return dataRow
+    }
+
+    private fun populateData(beverages: List<Beverage>?) {
+        beverages?.forEach { beverage ->
+            data.add(makeItem(beverage))
+        }
+    }
+
+    private fun printData() {
+        Log.d("data size: ", "size: " + data.size.toString())
+        data.forEach {
+            Log.d("item:", it.toString())
         }
     }
 
