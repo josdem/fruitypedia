@@ -23,8 +23,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
-import androidx.annotation.VisibleForTesting
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.google.common.collect.Maps
 import com.josdem.fruitypedia.adapter.BeverageAdapter
 import com.josdem.fruitypedia.databinding.FragmentBeverageBinding
@@ -38,14 +38,11 @@ import kotlinx.coroutines.launch
 class BeverageFragment : Fragment() {
     private var _binding: FragmentBeverageBinding? = null
     private val binding get() = _binding!!
-    private val fruityService: FruityService = RetrofitHelper.getInstance().create(FruityService::class.java)
+    private val fruityService: FruityService =
+        RetrofitHelper.getInstance().create(FruityService::class.java)
 
-    @VisibleForTesting
-    protected val id: String = "ID"
-
-    @VisibleForTesting
-    protected val name: String = "NAME"
-
+    private val id: String = "ID"
+    private val name: String = "NAME"
     private var data: MutableList<MutableMap<String, Any>> = mutableListOf()
 
     override fun onCreateView(
@@ -77,8 +74,7 @@ class BeverageFragment : Fragment() {
         }
     }
 
-    @VisibleForTesting
-    protected fun makeItem(beverage: Beverage): MutableMap<String, Any> {
+    private fun makeItem(beverage: Beverage): MutableMap<String, Any> {
         val dataRow: MutableMap<String, Any> = Maps.newHashMap()
         dataRow[beverage.id.toString()] = beverage.name
         return dataRow
@@ -102,12 +98,16 @@ class BeverageFragment : Fragment() {
         val from = arrayOf(id, name)
         val to = intArrayOf(R.id.beverageIdTextView, R.id.beverageTextView)
 
-        val simpleAdapter = this.context?.let { BeverageAdapter(it, data, R.layout.list_beverage, from, to) }
+        val simpleAdapter =
+            this.context?.let { BeverageAdapter(it, data, R.layout.list_beverage, from, to) }
         listView.adapter = simpleAdapter
 
         listView.setOnItemClickListener { parent, view, position, id ->
             val item = simpleAdapter?.getItem(position)
             Log.d("element:", "$item was selected")
+            val entry = item.toString().replace("{", "").replace("}", "").split("=")
+            ApplicationState.storeValue("currentBeverage", Integer.valueOf(entry[0]))
+            findNavController().navigate(R.id.action_SecondFragment_to_ThirdFragment)
         }
     }
 
