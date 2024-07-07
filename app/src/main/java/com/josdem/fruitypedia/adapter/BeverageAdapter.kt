@@ -18,7 +18,6 @@ under the License.
 package com.josdem.fruitypedia.adapter
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,7 +40,6 @@ class BeverageAdapter(
         convertView: View?,
         parent: ViewGroup,
     ): View {
-        Log.d("context view: ", convertView.toString())
         if (convertView == null) {
             val view = inflater.inflate(R.layout.list_beverage, parent, false)
             val textView: TextView = view.findViewById(R.id.beverageIdTextView)
