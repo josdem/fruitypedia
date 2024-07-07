@@ -18,10 +18,12 @@ under the License.
 package com.josdem.fruitypedia.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SimpleAdapter
+import android.widget.TextView
 import com.josdem.fruitypedia.R
 
 class BeverageAdapter(
@@ -39,10 +41,16 @@ class BeverageAdapter(
         convertView: View?,
         parent: ViewGroup,
     ): View {
+        Log.d("context view: ", convertView.toString())
         if (convertView == null) {
             val view = inflater.inflate(R.layout.list_beverage, parent, false)
-            return super.getView(position, view, parent)
+            val textView: TextView = view.findViewById(R.id.beverageIdTextView)
+            val nameView: TextView = view.findViewById(R.id.beverageTextView)
+            val entry = this.getItem(position).toString().replace("{", "").replace("}", "").split("=")
+            textView.text = entry[0]
+            nameView.text = entry[1]
+            return view
         }
-        return super.getView(position, convertView, parent)
+        return convertView
     }
 }
