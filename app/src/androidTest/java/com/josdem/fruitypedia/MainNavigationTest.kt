@@ -41,7 +41,7 @@ class MainNavigationTest {
                 allOf(
                     `is`(instanceOf(Map::class.java)),
                     hasEntry(
-                        equalTo("85"),
+                        equalTo("NAME"),
                         `is`("Anti-constipation Smoothie"),
                     ),
                 ),
