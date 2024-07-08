@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/beverageTextView"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:padding="30dp"
-    android:textSize="25sp" />
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/beverageIdTextView"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/beverageTextView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/beverageIdTextView"
+        android:padding="20dp"
+        android:textSize="25sp" />
+
+</RelativeLayout>

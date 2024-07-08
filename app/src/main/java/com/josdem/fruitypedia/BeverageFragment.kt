@@ -22,10 +22,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.common.collect.Maps
+import com.josdem.fruitypedia.adapter.BeverageAdapter
 import com.josdem.fruitypedia.databinding.FragmentBeverageBinding
 import com.josdem.fruitypedia.model.Beverage
 import com.josdem.fruitypedia.service.FruityService
@@ -37,7 +38,12 @@ import kotlinx.coroutines.launch
 class BeverageFragment : Fragment() {
     private var _binding: FragmentBeverageBinding? = null
     private val binding get() = _binding!!
-    private val fruityService: FruityService = RetrofitHelper.getInstance().create(FruityService::class.java)
+    private val fruityService: FruityService =
+        RetrofitHelper.getInstance().create(FruityService::class.java)
+
+    private val id: String = "ID"
+    private val name: String = "NAME"
+    private var data: MutableList<MutableMap<String, Any>> = mutableListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -61,27 +67,46 @@ class BeverageFragment : Fragment() {
                 val result =
                     fruityService.getBeverages(ApplicationState.getValue("currentCategory") as Int)
                 Log.d("beverages: ", result.body().toString())
-                displayResults(result.body())
+                populateData(result.body())
+                printData()
+                displayResults()
             }
         }
     }
 
-    private fun displayResults(beverages: List<Beverage>?) {
-        val listView = view?.findViewById(R.id.listViewBeverages) as ListView
+    private fun makeItem(beverage: Beverage): MutableMap<String, Any> {
+        val dataRow: MutableMap<String, Any> = Maps.newHashMap()
+        dataRow[beverage.id.toString()] = beverage.name
+        return dataRow
+    }
 
-        val arrayAdapter: ArrayAdapter<Beverage> =
-            ArrayAdapter<Beverage>(
-                view!!.context,
-                R.layout.list_beverage,
-                R.id.beverageTextView,
-                beverages as MutableList<Beverage>,
-            )
-        listView.adapter = arrayAdapter
+    private fun populateData(beverages: List<Beverage>?) {
+        beverages?.forEach { beverage ->
+            data.add(makeItem(beverage))
+        }
+    }
+
+    private fun printData() {
+        Log.d("data size: ", "size: " + data.size.toString())
+        data.forEach {
+            Log.d("item:", it.toString())
+        }
+    }
+
+    private fun displayResults() {
+        val listView = view?.findViewById(R.id.listViewBeverages) as ListView
+        val from = arrayOf(id, name)
+        val to = intArrayOf(R.id.beverageIdTextView, R.id.beverageTextView)
+
+        val simpleAdapter =
+            this.context?.let { BeverageAdapter(it, data, R.layout.list_beverage, from, to) }
+        listView.adapter = simpleAdapter
 
         listView.setOnItemClickListener { parent, view, position, id ->
-            val beverage = arrayAdapter.getItem(position)
-            Log.d("element: $beverage", "was selected")
-            beverage?.id?.let { ApplicationState.storeValue("currentBeverage", it) }
+            val item = simpleAdapter?.getItem(position)
+            Log.d("element:", "$item was selected")
+            val entry = item.toString().replace("{", "").replace("}", "").split("=")
+            ApplicationState.storeValue("currentBeverage", Integer.valueOf(entry[0]))
             findNavController().navigate(R.id.action_SecondFragment_to_ThirdFragment)
         }
     }
