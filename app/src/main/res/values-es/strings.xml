@@ -6,6 +6,7 @@
     <string name="name">Nombre</string>
     <string name="ingredients">Ingredientes</string>
     <string name="recipe">Receta</string>
+    <string name="image">Imagen de la bebida</string>
     <string name="dialogMessage">¡Hola, te deseamos salud!</string>
     <string name="dialogButton">Aceptar</string>
 </resources>

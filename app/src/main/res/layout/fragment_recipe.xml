@@ -33,6 +33,7 @@
                 android:layout_width="190dp"
                 android:layout_height="240dp"
                 android:layout_gravity="center"
+                android:contentDescription="@string/image"
                 android:padding="5dp"/>
 
             <TextView
