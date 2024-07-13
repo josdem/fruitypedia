@@ -1,6 +1,6 @@
 Fruitypedia
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 ----------------------------
 
@@ -63,6 +63,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tbody>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/dansmors"><img src="https://avatars.githubusercontent.com/u/137648870?v=4?s=100" width="100px;" alt="dansmors"/><br /><sub><b>dansmors</b></sub></a><br /><a href="#design-dansmors" title="Design">🎨</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/MJJacobs01"><img src="https://avatars.githubusercontent.com/u/52112400?v=4?s=100" width="100px;" alt="MJ Jacobs"/><br /><sub><b>MJ Jacobs</b></sub></a><br /><a href="https://github.com/josdem/fruitypedia/pulls?q=is%3Apr+reviewed-by%3AMJJacobs01" title="Reviewed Pull Requests">👀</a></td>
     </tr>
   </tbody>
 </table>
