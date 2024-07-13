@@ -15,6 +15,15 @@
       "contributions": [
         "design"
       ]
+    },
+    {
+      "login": "MJJacobs01",
+      "name": "MJ Jacobs",
+      "avatar_url": "https://avatars.githubusercontent.com/u/52112400?v=4",
+      "profile": "https://github.com/MJJacobs01",
+      "contributions": [
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,
