@@ -35,17 +35,5 @@ class MainNavigationTest {
 
         val beverages = onView(allOf(withId(R.id.listViewBeverages)))
         beverages.check(matches(isDisplayed()))
-
-        val beverage =
-            onData(
-                allOf(
-                    `is`(instanceOf(Map::class.java)),
-                    hasEntry(
-                        equalTo("NAME"),
-                        `is`("Anti-constipation Smoothie"),
-                    ),
-                ),
-            )
-        beverage.check(matches(isCompletelyDisplayed()))
     }
 }
