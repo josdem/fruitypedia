@@ -24,7 +24,7 @@ class BeverageFragmentTest {
     }
 
     @Test
-    fun testEventFragment() {
+    fun shouldValidateBeverageFragment() {
         val scenario =
             launchFragmentInContainer<BeverageFragment>(
                 initialState = Lifecycle.State.INITIALIZED,
