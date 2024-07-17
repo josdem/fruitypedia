@@ -54,7 +54,7 @@ class CategoryAdapter(context: Context, resource: Int) : ArrayAdapter<Category>(
         convertView: View?,
         parent: ViewGroup,
     ): View {
-        if(convertView == null){
+        if (convertView == null) {
             val view = inflater.inflate(R.layout.list_category, parent, false)
             val textView: TextView = view.findViewById(R.id.categoryTextView)
             textView.setCompoundDrawablesWithIntrinsicBounds(images[position], 0, 0, 0)
