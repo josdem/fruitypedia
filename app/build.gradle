@@ -6,7 +6,8 @@ plugins {
 }
 
 ext {
-    testIntegrationVersion = '1.6.0'
+    testIntegrationVersion = '1.6.1'
+    fragment_version = '1.8.1'
 }
 
 android {
@@ -18,7 +19,7 @@ android {
         minSdk 21
         targetSdk 34
         versionCode 7
-        versionName "1.1.2"
+        versionName "1.1.3"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -60,15 +61,17 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.7.7'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    implementation(platform('com.google.firebase:firebase-bom:33.1.1'))
+    implementation(platform('com.google.firebase:firebase-bom:33.1.2'))
     implementation 'com.google.firebase:firebase-analytics'
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'io.mockk:mockk:1.13.8'
-    androidTestImplementation 'androidx.test.ext:junit:1.2.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
     //TODO: Remove debugImplementation since it is a temporal fix to this Junit issue:
     //https://github.com/android/android-test/issues/1755
+    debugImplementation "androidx.fragment:fragment-testing-manifest:$fragment_version"
+    androidTestImplementation "androidx.fragment:fragment-testing:$fragment_version"
     debugImplementation 'androidx.tracing:tracing:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
     androidTestImplementation "androidx.test:runner:$testIntegrationVersion"
     androidTestImplementation "androidx.test:rules:$testIntegrationVersion"
 }

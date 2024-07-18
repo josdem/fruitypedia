@@ -94,7 +94,7 @@ class BeverageFragment : Fragment() {
     }
 
     private fun displayResults() {
-        val listView = view?.findViewById(R.id.listViewBeverages) as ListView
+        val listView: ListView = view?.findViewById(R.id.listViewBeverages)!!
         val from = arrayOf(id, name)
         val to = intArrayOf(R.id.beverageIdTextView, R.id.beverageTextView)
 
