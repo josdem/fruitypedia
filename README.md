@@ -15,22 +15,22 @@ This project contains juice and smoothie recipes to provide alternatives to heal
 
 ### To run unit tests
 ```bash
-gradle test
+./gradlew test
 ```
 
 ### To run integration tests
 ```bash
-gradle connectedAndroidTest
+./gradlew connectedAndroidTest
 ```
 
 ### To build the project
 ```bash
-gradle assembleDebug
+./gradlew assembleDebug
 ```
 
 ### To format the code
 ```bash
-gradle spotlessApply
+./gradlew spotlessApply
 ```
 
 ### To run emulator

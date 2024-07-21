@@ -16,6 +16,7 @@ import org.hamcrest.Matchers.`is`
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import java.util.concurrent.TimeUnit
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
@@ -26,6 +27,8 @@ class MainNavigationTest {
 
     @Test
     fun mainNavigationTest() {
+        TimeUnit.SECONDS.sleep(5)
+
         val healingTextView =
             onData(allOf(`is`(instanceOf(Category::class.java)), `is`(Category(5, "Healing"))))
         healingTextView.perform(click())
