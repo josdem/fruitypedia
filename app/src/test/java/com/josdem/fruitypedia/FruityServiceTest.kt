@@ -12,6 +12,7 @@ import retrofit2.Response
 
 const val LANGUAGE = "en"
 const val CATEGORY = 5
+const val BEVERAGE = 85
 
 class FruityServiceTest {
     private val fruityService: FruityService =
@@ -23,6 +24,10 @@ class FruityServiceTest {
 
     private suspend fun getBeverages(): Response<List<Beverage>> {
         return fruityService.getBeverages(CATEGORY)
+    }
+
+    private suspend fun getBeverage(): Response<Beverage> {
+        return fruityService.getBeverage(BEVERAGE)
     }
 
     @Test
@@ -41,5 +46,22 @@ class FruityServiceTest {
             val beverages: List<Beverage>? = response.body()
             assertTrue(response.isSuccessful)
             assertEquals(14, beverages?.size)
+        }
+
+    @Test
+    fun shouldGetBeverage() =
+        runTest {
+            val response = getBeverage()
+            val beverage: Beverage? = response.body()
+            assertTrue(response.isSuccessful)
+            assertEquals("Anti-constipation Smoothie", beverage?.name)
+            assertEquals("https://storage.googleapis.com/jugoterapia/85.jpg", beverage?.image)
+            assertEquals("1 Apple,1 Pear", beverage?.ingredients)
+            assertEquals(
+                "Start your day with apple and pear without peel getting juice as much as you can utilizing juice extractor" +
+                    " or using just a blender. Apple juice contains sorbitol, " +
+                    "natural sugar which helps to our body to avoid persistent constipation",
+                beverage?.recipe,
+            )
         }
 }
