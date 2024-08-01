@@ -65,6 +65,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'io.mockk:mockk:1.13.8'
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.8.1"
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
     //TODO: Remove debugImplementation since it is a temporal fix to this Junit issue:
     //https://github.com/android/android-test/issues/1755
