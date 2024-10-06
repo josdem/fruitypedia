@@ -19,13 +19,14 @@ https://github.com/josdem/fruitypedia/blob/main/app/src/main/AndroidManifest.xml
 
 | Permission | Why it is required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | :---: |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `android.permission.INTERNET` | This is required to request categories, beverages and recipes information from the app service [webflux.josdem.io](https://webflux.josdem.io/swagger-ui.html)                                                                                                                                                                                                                                                                                                                                                         |
+| `android.permission.INTERNET` | This is required to request categories, beverages and recipes information from the app service [fruitypedia.josdem.io](https://fruitypedia.josdem.io/swagger-ui.html)                                                                                                                                                                                      |
 
  <hr style="border:1px solid gray">
 
 If you find any security vulnerability that has been inadvertently caused by me, or have any question regarding how the app protects your privacy, please send me an email or post a discussion on GitHub, and I will surely try to fix it/help you.
 
 Best regards,
-Jose Morales.  
+
+Jose Morales.
 Plymouth, Michigan USA.  
 contact@josdem.io
