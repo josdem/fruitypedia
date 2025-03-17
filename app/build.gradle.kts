@@ -11,12 +11,12 @@ val fragmentVersion = "1.8.1"
 
 android {
     namespace = "com.josdem.fruitypedia"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.josdem.fruitypedia"
         minSdk = 21
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 8
         versionName = "1.2.0"
 
