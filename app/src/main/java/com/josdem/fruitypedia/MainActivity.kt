@@ -19,6 +19,7 @@ package com.josdem.fruitypedia
 
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -43,6 +44,7 @@ class MainActivity : AppCompatActivity() {
     private var clickCounter: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
 
         val dexOutputDir: File = codeCacheDir

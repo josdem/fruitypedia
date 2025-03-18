@@ -1,0 +1,50 @@
+[versions]
+androidGradlePlugin = "8.9.0"
+appcompat = "1.7.0"
+constraintlayout = "2.2.1"
+diffplugSpotlessPlugin = "6.22.0"
+espressoCore = "3.6.1"
+firebaseBom = "33.10.0"
+fragmentVersion = "1.8.6"
+googleServicesPlugin = "4.4.2"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+kotlinGradlePlugin = "2.1.20-RC3"
+kotlinxCoroutinesTest = "1.8.1"
+ktx = "1.15.0"
+material = "1.12.0"
+mockk = "1.13.17"
+navigationFragmentKtx = "2.8.9"
+retrofit = "2.11.0"
+rules = "1.6.1"
+runner = "1.6.2"
+tracing = "1.2.0"
+
+[libraries]
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
+androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
+androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espressoCore" }
+androidx-fragment-testing = { module = "androidx.fragment:fragment-testing", version.ref = "fragmentVersion" }
+androidx-fragment-testing-manifest = { module = "androidx.fragment:fragment-testing-manifest", version.ref = "fragmentVersion" }
+androidx-junit = { module = "androidx.test.ext:junit", version.ref = "junitVersion" }
+androidx-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "ktx" }
+androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
+androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationFragmentKtx" }
+androidx-rules = { module = "androidx.test:rules", version.ref = "rules" }
+androidx-runner = { module = "androidx.test:runner", version.ref = "runner" }
+androidx-tracing = { module = "androidx.tracing:tracing", version.ref = "tracing" }
+converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+junit = { module = "junit:junit", version.ref = "junit" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinxCoroutinesTest" }
+material = { module = "com.google.android.material:material", version.ref = "material" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+diffplug-spotless = { id = "com.diffplug.spotless", version.ref = "diffplugSpotlessPlugin" }
+google-services = { id = "com.google.gms.google-services", version.ref = "googleServicesPlugin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinGradlePlugin" }
