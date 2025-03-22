@@ -4,3 +4,4 @@ build/
 app/release/
 local.properties.DS_Store
 **/.DS_Store
+local.properties
